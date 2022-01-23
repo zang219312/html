@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./notify.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  notify("中奖提示", {
+    icon: "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/f1a9f122e925aeef5e4534ff7f706729~300x300.image",
+    body: "恭喜你，掘金签到一等奖",
+    tag: "prize"
+  }, {
+    onclick(ev) {
+      console.log(ev);
+      ev.target.close();
+      window.focus();
+    }
+  })
+</script>
+
+</html>

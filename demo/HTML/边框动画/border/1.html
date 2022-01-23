@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>边框逐渐消失</title>
+		<style>
+			.br_hide {
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			.br_hide:hover {
+				text-decoration: none;
+			}
+
+			.br_hide:hover text {
+				fill: #913F3F;
+
+			}
+
+			.br_hide:hover g {
+				animation: first1 3s linear infinite;
+				stroke: #913F3F;
+				stroke-width: 2;
+				animation: first1 0.5s linear;
+				stroke-dashoffset:0
+			}
+
+
+			@keyframes first1 {
+				0% {
+					stroke-dasharray: 0%, 500%;
+					/* 创建虚线 */
+					/* stroke-dashoffset: 0%; */
+					/* 一条线 正值向左移动，负值向右移动 */
+				}
+
+				100% {
+					stroke-dasharray: 500%, 250%;
+					/* stroke-dashoffset: 0%; */
+				}
+			}
+
+
+			#shape {
+				stroke-width: 6px;
+				fill: transparent;
+				stroke: #009FFD;
+				stroke-dasharray: 85 400;
+				stroke-dashoffset: -220;
+				transition: 1s all ease
+			}
+
+			.svg:hover #shape {
+				stroke-dasharray: 70 0;
+				stroke-width: 3px;
+				stroke-dashoffset: 0;
+				stroke: #06D6A0;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#" class="br_hide">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="36">
+				<rect fill="none" stroke="#DBEAF9" stroke-width="2" width="80" height="36" />
+				<text x="10" y="24">王玉娇</text>
+				<g fill="none">
+					<rect width="80" height="36" />
+				</g>
+			</svg>
+		</a>
+
+		<svg height="40" width="150" class="svg">
+			<rect id="shape" height="40" width="150" />
+		</svg>
+
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>涟漪</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        background-color: #040d15;
+      }
+      a {
+        position: relative;
+        display: inline-block;
+        padding: 12px 36px;
+        margin: 10px 0;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 18px;
+        letter-spacing: 2px;
+        border-radius: 40px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #0162c8, #55e7fc);
+        overflow: hidden;
+      }
+      a:nth-child(2) {
+        background: linear-gradient(90deg, #755bea, #55e7fc);
+      }
+
+      span {
+        position: absolute;
+        background: #ffffff;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: lianyi 1s linear infinite;
+      }
+      @keyframes lianyi {
+        0% {
+          width: 0px;
+          height: 0px;
+          opacity: 0.5;
+        }
+        100% {
+          width: 500px;
+          height: 500px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#">Button1</a>
+    <a href="#">Button2</a>
+  </body>
+  <script>
+    const buttons = document.querySelectorAll('a')
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', function (e) {
+        let x = e.clientX - e.target.offsetLeft
+        let y = e.clienty - e.target.offsetTop
+        let s = document.createElement('span')
+        s.style.left = x + 'px'
+        s.style.top = y + 'px'
+        this.appendChild(s)
+
+        setTimeout(() => {
+          s.remove()
+        }, 1000)
+      })
+    })
+
+    var fullname = 'John Doe'
+    var obj = {
+      fullname: 'Colin Ihrig',
+      prop: {
+        fullname: 'Aurelio De Rosa',
+        getFullname: function () {
+          return this.fullname
+        },
+      },
+    }
+
+    console.log(obj.prop.getFullname())
+
+    var test = obj.prop.getFullname
+
+    console.log(test())
+  </script>
+</html>

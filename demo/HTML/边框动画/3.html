@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>边框过渡</title>
+  <style>
+    .father {
+      height: 100px;
+      width: 100px;
+      background-color: green;
+
+      position: relative;
+    }
+
+    .son {
+      height: 50px;
+      /* 隐去宽度 */
+      width: 0px;
+      background-color: grey;
+
+      position: absolute;
+      top: 0;
+      right: -100px;
+
+      /* 收回的时候快一点 */
+      transition: width 200ms;
+    }
+
+    /* 交集选择器，所以父子关系的div盒子才可以 */
+    .father:hover .son {
+      /* 将transition写在;hover中，很是巧妙 */
+      /* 伸展的时候慢一点 */
+      width: 100px;
+      transition: width 800ms;
+    }
+
+
+    .demo {
+      border: 4px solid #0069D9;
+      border-radius: 36px;
+      width: 180px;
+      height: 36px;
+      transition: border-top-color 0.8s linear, border-bottom-color 0.8s linear, border-right-color 0.8s linear 0.8s;
+    }
+
+
+    .anime {
+      border-color: #7f7f7f;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      box-sizing: border-box;
+      box-shadow: inset 0 0 0 2px #f45e61;
+      color: #f45e61;
+      font-size: inherit;
+      font-weight: 700;
+      margin: 1em;
+      padding: 1em 2em;
+      text-align: center;
+      text-transform: capitalize;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .draw {
+      transition: color 0.25s;
+    }
+
+    .draw::before {
+      top: 0;
+      left: 0;
+    }
+
+    .draw::before,
+    .draw::after {
+      border: 2px solid transparent;
+      width: 0;
+      height: 0;
+    }
+
+    button::before,
+    button::after {
+      box-sizing: border-box;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+
+
+    .center::before,
+    .center::after {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transform-origin: center;
+    }
+
+    .center::before {
+      border-top: 2px solid #6477b9;
+      border-bottom: 2px solid #6477b9;
+      transform: scale3d(0, 1, 1);
+    }
+
+    .center::after {
+      border-left: 2px solid #6477b9;
+      /* border-right: 2px solid #6477b9; */
+      transform: scale3d(1, 0, 1);
+      /* 竖向隐藏 */
+    }
+
+    .center:hover {
+      color: #6477b9;
+    }
+
+    .center:hover::before,
+    .center:hover::after {
+      transform: scale3d(1, 1, 1);
+      transition: transform 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo"></div>
+
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+  <button class="center">center</button>
+
+
+</body>
+<script>
+  var demo = document.getElementsByClassName('demo')[0]
+  demo.addEventListener('click', function (e) {
+    this.className += ' anime'
+  })
+
+  demo.addEventListener('transitionend', function (e) {
+    console.log(e);
+  })
+</script>
+
+</html>

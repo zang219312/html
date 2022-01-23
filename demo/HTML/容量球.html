@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 500px;
+            padding-top: 100px;
+            padding-left: 200px;
+        }
+
+        .circular {
+            height: 100px;
+            width: 100px;
+            border: 2px solid #4682B4;
+            border-radius: 50%;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .num {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 30;
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            position: absolute;
+            height: 60px;
+            width: 100px;
+            background: #4682B4;
+            bottom: 0px;
+        }
+
+        .content::after,
+        .content::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 0;
+            left: 50%;
+            background-color: rgba(255, 255, 255, .7);
+            border-radius: 40% 42% 40% 41%;
+            transform: translate(-50%, -100%) rotate(0);
+            animation: rotate 8s linear infinite;
+            z-index: 10;
+        }
+
+        .content::after {
+            border-radius: 42% 40% 41% 40%;
+            background-color: rgba(255, 255, 255, .9);
+            transform: translate(-50%, -100%) rotate(0);
+            animation: rotate 8s linear -5s infinite;
+            z-index: 20;
+        }
+
+        @keyframes rotate {
+            50% {
+                transform: translate(-50%, -103%) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(-50%, -100%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 容量球内容量的高度就是.content的div的高度，波浪的幅度大小和波浪翻滚速度都是可以通过设置属性的值来实现。
+        在实际运用的时候，我们基本上只需要动态设置.content的height，就能实现不同容量的展示。 -->
+    <div class="box">
+        <div class="circular">
+            <div class="content"> </div>
+            <span class="num">40%</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

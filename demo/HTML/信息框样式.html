@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 80px;
+            background: #E3EAF4;
+            position: relative;
+            margin-top: 30px;
+            
+        }
+        /* 信息框的指向可以在伪类中进行修改 */
+        .box1::after {
+            content: ' ';
+            height: 12px;
+            width: 12px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: -4px;
+            left: 20px;
+            position: absolute;
+            background: #E3EAF4;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 80px;
+            position: relative;
+            border: 1px solid #E3EAF4;
+            background-color: #ffffff;
+            margin-top: 30px;
+        }
+
+        .box2::after {
+            content: ' ';
+            height: 12px;
+            width: 12px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: -8px;
+            left: 20px;
+            position: absolute;
+            background-color: #ffffff;
+            border: 1px solid #E3EAF4;
+            border-bottom: none;
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+
+    <div class="box2"></div>
+
+</body>
+
+</html>

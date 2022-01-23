@@ -1,0 +1,49 @@
+@bg: radial-gradient(rgba(6, 32, 93, 0.6) 30%, rgba(6, 32, 93, 0));
+
+.wrap {
+  display: flex;
+  flex: 1;
+  width: 100%;
+
+  .borderBoxBgc {
+    width: 93%;
+    height: 100%;
+    margin: 0 20px;
+    // background-color: rgba(6,32,93,0.3);
+    background-image: @bg;
+  }
+
+  .leftWrap {
+    width: 30%;
+    margin-bottom: 10px;
+  }
+
+  .middleWrap {
+    width: 40%;
+    margin: 0 7px 10px 7px;
+  }
+
+  .rightWrap {
+    width: 30%;
+    height: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .rightTopWrap {
+      height: 40%;
+      background-image: @bg;
+    }
+
+    .rightMiddleWrap {
+      height: 40%;
+      background-image: @bg;
+    }
+
+    .rightBottomWrap {
+      height: 20%;
+      background-image: @bg;
+    }
+  }
+}

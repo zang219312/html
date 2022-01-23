@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --loading-box-length: 120px;
+        --loading-width: 60px;
+        --loading-height: 60px;
+        --loading-width-hover: 120px;
+        --loading-height-hover: 120px;
+        --toggle-diameter: 40px;
+        --toggle-offset: calc(
+          (var(--loading-height) - var(--toggle-diameter)) / 2
+        );
+        --colorDark: #333;
+        --colorLight: #f1cc4c;
+      }
+
+      body,
+      div,
+      h1,
+      h2,
+      form,
+      fieldset,
+      textarea,
+      footer,
+      p {
+        margin: 0;
+        padding: 0;
+        outline: none;
+      }
+
+      html {
+        animation: 4s loadingColor ease-in infinite;
+      }
+
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--loading-box-length);
+        height: var(--loading-box-length);
+        /* background-color: #eeeeee; */
+      }
+
+      .loading::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--loading-width);
+        height: var(--loading-height);
+        border-radius: calc(var(--loading-width) / 2);
+        background-color: #fff;
+        animation: 4s loadingRun linear infinite;
+      }
+
+      .loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--toggle-diameter);
+        height: var(--toggle-diameter);
+        border-radius: calc(var(--toggle-diameter) / 2);
+        margin: var(--toggle-offset);
+        background-color: var(--colorDark);
+        animation-name: loadingMove, loadingColor;
+        animation-duration: 4s, 4s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes loadingRun {
+        0% {
+          top: 0;
+          left: 0;
+          width: var(--loading-width);
+          height: var(--loading-height);
+        }
+        12.5% {
+          top: 0;
+          left: 0;
+          width: var(--loading-width-hover);
+          height: var(--loading-height);
+        }
+        25% {
+          top: 0;
+          left: calc(100% - var(--loading-width));
+          width: var(--loading-width);
+          height: var(--loading-height);
+        }
+        37.5% {
+          top: 0;
+          left: calc(100% - var(--loading-width));
+          width: var(--loading-width);
+          height: var(--loading-height-hover);
+        }
+        50% {
+          top: calc(100% - var(--loading-height));
+          left: calc(100% - var(--loading-width));
+          width: var(--loading-width);
+          height: var(--loading-height);
+        }
+        62.5% {
+          top: calc(100% - var(--loading-height));
+          left: 0;
+          width: var(--loading-width-hover);
+          height: var(--loading-height);
+        }
+        75% {
+          top: calc(100% - var(--loading-height));
+          left: 0;
+          width: var(--loading-width);
+          height: var(--loading-height);
+        }
+        87.5% {
+          top: 0;
+          left: 0;
+          width: var(--loading-width);
+          height: var(--loading-height-hover);
+        }
+        100% {
+          top: 0;
+          left: 0;
+          width: var(--loading-width);
+          height: var(--loading-height);
+        }
+      }
+
+      @keyframes loadingMove {
+        0% {
+          top: 0;
+          left: 0;
+        }
+        12.5% {
+          top: 0;
+          left: calc(100% - var(--loading-width));
+        }
+        25% {
+          top: 0;
+          left: calc(100% - var(--loading-width));
+        }
+        37.5% {
+          top: calc(100% - var(--loading-height));
+          left: calc(100% - var(--loading-width));
+        }
+        50% {
+          top: calc(100% - var(--loading-height));
+          left: calc(100% - var(--loading-width));
+        }
+        62.5% {
+          top: calc(100% - var(--loading-height));
+          left: 0;
+        }
+        75% {
+          top: calc(100% - var(--loading-height));
+          left: 0;
+        }
+        87.5% {
+          top: 0;
+          left: 0;
+        }
+        100% {
+          top: 0;
+          left: 0;
+        }
+      }
+      @keyframes loadingColor {
+        0% {
+          background-color: var(--colorDark);
+        }
+        12.5% {
+          background-color: var(--colorLight);
+        }
+        25% {
+          background-color: var(--colorLight);
+        }
+        37.5% {
+          background-color: var(--colorDark);
+        }
+        50% {
+          background-color: var(--colorDark);
+        }
+        62.5% {
+          background-color: var(--colorLight);
+        }
+        75% {
+          background-color: var(--colorLight);
+        }
+        87.5% {
+          background-color: var(--colorDark);
+        }
+        100% {
+          background-color: var(--colorDark);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading"></div>
+  </body>
+</html>

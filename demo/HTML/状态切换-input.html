@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>状态切换</title>
+	<style>
+		body {
+			background: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+
+		input {
+			margin-right: .25em;
+			width: 30px;
+			height: 30px;
+		}
+
+		label {
+			position: relative;
+			top: 1px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- :indeterminate -->
+	<form>
+		<input type="checkbox" id="checkbox">
+		<label for="option">点击左边</label>
+	</form>
+	<script>
+		'use strict';
+		checkbox.addEventListener('click', ev => {
+			console.group()
+			if (ev.target.readOnly) {
+				ev.target.checked = ev.target.readOnly = false;
+			} else if (!ev.target.checked) {
+				ev.target.readOnly = ev.target.indeterminate = true;
+			};
+			console.log(ev.target.checked);
+			console.log(ev.target.readOnly);
+			console.log(ev.target.indeterminate);
+			console.groupEnd()
+		});
+	</script>
+
+</body>
+
+</html>
