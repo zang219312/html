@@ -1,0 +1,109 @@
+<!DOCtYPE htMl>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Image Wipes</title>
+	
+	<link rel='stylesheet' href='css/style.css'>
+	
+	<style>
+	
+		#banner {
+			width: 800px;
+			height: 300px;
+			position: relative;
+			border: 8px solid #eee;
+			-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.75);
+		}
+	
+		#banner div {
+			position: absolute;
+		}
+		
+		#banner div:nth-child(2) {
+			-webkit-animation: wipe 6s infinite;
+			-webkit-animation-delay: 3s;
+			-webkit-animation-direction: alternate;
+			-webkit-mask-size: 2000px 2000px;
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom, 
+					color-stop(0.00,  rgba(0,0,0,1)),
+					color-stop(0.45,  rgba(0,0,0,1)),
+					color-stop(0.50,  rgba(0,0,0,0)),
+					color-stop(0.55,  rgba(0,0,0,0)),
+					color-stop(1.00,  rgba(0,0,0,0)));
+		}
+		
+		@-webkit-keyframes wipe {
+			0% {
+				-webkit-mask-position: 0 0;
+			}
+			100% {
+				-webkit-mask-position: -1200px -1200px;
+			}
+		}
+		
+		#rollover {
+			width: 250px;
+			height: 250px;
+			position: relative;
+			border: 8px solid #eee;
+			-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.75);
+		}
+	
+		#rollover div {
+			position: absolute;
+			top: 0;
+			left: 0;   
+		}
+		
+		#rollover div:nth-child(2) {
+			-webkit-transition: -webkit-mask-position 1s ease;		
+			-webkit-mask-size: 600px 600px;
+			-webkit-mask-image: -webkit-gradient(linear, left top, right top, 
+					color-stop(0.00,  rgba(0,0,0,1)),
+					color-stop(0.35,  rgba(0,0,0,1)),
+					color-stop(0.50,  rgba(0,0,0,0)),
+					color-stop(0.75,  rgba(0,0,0,0)),
+					color-stop(1.00,  rgba(0,0,0,0)));
+		}
+		
+		#rollover div:nth-child(2):hover {
+			-webkit-mask-position: -300px -300px;
+		}
+	
+	</style>
+
+</head>
+
+<body>
+
+	<div id="page-wrap">
+	
+		<h1>WebKit Image Wipes</h1>
+	
+		<h2>Alernating, Automatic, Angled</h2>
+
+		<div id="banner">
+			<div><img src="images/banner-1.jpg" alt="Skyline 1"></div>
+			<div><img src="images/banner-2.jpg" alt="Skyline 2"></div>
+		</div>
+		
+		<h2>Rollover, Straight</h2>
+			
+		<div id="rollover">
+			<div><img src="images/rollover-2.jpg" alt="Smile"></div>
+			<div><img src="images/rollover-1.jpg" alt="Sleep"></div>
+		</div>
+		
+		<h2>Photos</h2>
+		http://www.flickr.com/photos/joiseyshowaa/2720195951/<br>
+		http://www.flickr.com/photos/livenature/175872009/<br>
+		http://www.flickr.com/photos/romainguy/230462559/
+			
+	</div>
+		
+</body>
+
+</html>

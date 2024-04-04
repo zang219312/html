@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+<style type="text/css">
+  .img-div {
+    width: 36px;
+    height: 24px;
+    border: 1px solid #ccc;
+    position: absolute;
+  }
+
+  .img-div .img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-div .img2 {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    margin-left: 9px;
+  }
+
+  .shadwo {
+    box-shadow: 0 0 13px #ccc;
+  }
+
+  .left-group-div {
+    position: absolute;
+    left: -105px;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .right-group-div {
+    position: absolute;
+    right: -108px;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+  }
+
+  .left-div {
+    position: absolute;
+    left: 43px;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+  }
+
+  .right-div {
+    position: absolute;
+    right: 43px;
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    text-align: right;
+  }
+
+  /*圆*/
+  .circular-div {
+    position: absolute;
+    top: 300px;
+    left: 800px;
+    width: 0px;
+    height: 200px;
+    border-radius: 200px;
+    border: 2px solid #099dff;
+  }
+</style>
+
+<body>
+
+  <div
+    style="padding: 20px 60px; width: 1600px; height: 630px; margin: 0 auto; margin-top: 30px; box-shadow: 0 0 13px #ccc; ">
+    <div id="div" style="position: relative;">
+
+    </div>
+  </div>
+
+  <!--32支球队信息-->
+  <div id="inputDiv" style="display:none;">
+    <input type="hidden" data-group="A组" data-name="塞内加尔" data-src="images/5409f8cd1d7c3d4fc52c3c73d8f4d748.png" />
+    <input type="hidden" data-group="A组" data-name="荷兰" data-src="images/e449bde913469bca9c7478ec17d2fe6c.png" />
+    <input type="hidden" data-group="A组" data-name="厄瓜多尔" data-src="images/f7fbe426deae24a394e516e5991c63af.png" />
+    <input type="hidden" data-group="A组" data-name="卡塔尔" data-src="images/20d6af801cec5aadd82c4da763648daa.png" />
+
+    <input type="hidden" data-group="B组" data-name="威尔士" data-src="images/3ad99a9c186a78be12852a2c1e1b0e53.png" />
+    <input type="hidden" data-group="B组" data-name="英格兰" data-src="images/e80b5eececdfb64fbb50aa0c8c366861.png" />
+    <input type="hidden" data-group="B组" data-name="伊朗" data-src="images/79bc4fe4b02ad0544af9f2a8fbbe02e1.png" />
+    <input type="hidden" data-group="B组" data-name="美国" data-src="images/19f0d6e267727f9846559d420a2068a6.png" />
+
+    <input type="hidden" data-group="C组" data-name="波兰" data-src="images/636392ea158aa3afb9c47949364b888e.png" />
+    <input type="hidden" data-group="C组" data-name="阿根廷" data-src="images/ca4718053280290ad49d44d67ca97743.png" />
+    <input type="hidden" data-group="C组" data-name="墨西哥" data-src="images/82e8ef2732cf8ea2554fad9a99a712fd.png" />
+    <input type="hidden" data-group="C组" data-name="沙特" data-src="images/b3b1f269a39ef3b5b1700a854902eb8b.png" />
+
+    <input type="hidden" data-group="D组" data-name="突尼斯" data-src="images/5f801ce25d4e64977ff65e297e82c81a.png" />
+    <input type="hidden" data-group="D组" data-name="法国" data-src="images/cf81fe2ec21bfebf376ca1bfcee07b23.png" />
+    <input type="hidden" data-group="D组" data-name="澳大利亚" data-src="images/9c6ae919870434634765897f52ca26b1.png" />
+    <input type="hidden" data-group="D组" data-name="丹麦" data-src="images/e3c72eaf6d6ec0e992035072e762d519.png" />
+
+    <input type="hidden" data-group="E组" data-name="日本" data-src="images/aaa5b59dabdb134ef29be5d2606ce759.png" />
+    <input type="hidden" data-group="E组" data-name="西班牙" data-src="images/423b6f44c2672d58086b04ac39ae15e5.png" />
+    <input type="hidden" data-group="E组" data-name="哥斯达黎加" data-src="images/e8c90529adf8a4bc6fef5a52fec9149a.png" />
+    <input type="hidden" data-group="E组" data-name="德国" data-src="images/635f433e3db5cff4f103ef6f79044195.png" />
+
+    <input type="hidden" data-group="F组" data-name="克罗地亚" data-src="images/160422fb015875d37b44c1250c25a968.png" />
+    <input type="hidden" data-group="F组" data-name="加拿大" data-src="images/b57067797fdbe0ebed243460195b2298.png" />
+    <input type="hidden" data-group="F组" data-name="比利时" data-src="images/794d8863eb276713c481c3398736b06e.png" />
+    <input type="hidden" data-group="F组" data-name="摩洛哥" data-src="images/06c2200f0d780e6c45fe1b85a35ceca5.png" />
+
+    <input type="hidden" data-group="G组" data-name="巴西" data-src="images/b06748a153a355351a271eebbaad33d0.png" />
+    <input type="hidden" data-group="G组" data-name="喀麦隆" data-src="images/3bebc6f2dad9f027ac176272442ba530.png" />
+    <input type="hidden" data-group="G组" data-name="瑞士" data-src="images/be6980d6afd68c698d92dd85b00ac35e.png" />
+    <input type="hidden" data-group="G组" data-name="塞尔维亚" data-src="images/173de8171422a2e07c0a8b7138728133.png" />
+
+    <input type="hidden" data-group="H组" data-name="韩国" data-src="images/a6f50eeb6923fc95feb1878d7e9c83c5.png" />
+    <input type="hidden" data-group="H组" data-name="葡萄牙" data-src="images/823e147f8bde4fef13f26aeeb9d7e691.png" />
+    <input type="hidden" data-group="H组" data-name="加纳" data-src="images/42a039c1519755b611ba84130284e516.png" />
+    <input type="hidden" data-group="H组" data-name="乌拉圭" data-src="images/012c08a106961a36b8f740e558bb9c6a.png" />
+  </div>
+</body>
+
+<script type="text/javascript">
+  // ===分组和对阵图===
+  $(function () {
+    var line = $('<div class="circular-div"></div>');
+    //$('#div').append(line);
+    line.animate({ width: "200px" }, 5000);
+
+    // 初始化球队值
+    var teamData = {}
+    $('#inputDiv input').each(function () {
+      var group = $(this).attr('data-group');
+      var name = $(this).attr('data-name');
+      var src = $(this).attr('data-src');
+      teamData[name] = { group: group, name: name, src: src };
+    });
+
+    // 公共变量
+    var height = 36;
+    var paddingBottom = 5;
+
+    // 公共创建div方法
+    function createDiv (currentName, arrow) {
+      var div = $('<div></div>');
+      div.addClass('img-div shadwo');
+      var data = teamData[currentName];
+      var group = data != undefined ? data.group : '';
+      var name = data != undefined ? data.name : currentName;
+      var src = data != undefined ? data.src : '';
+      div.append('<div class="' + arrow + '-div">' + name + '</div>');
+      if (name == "待定") {
+        div.append('<img class="img2" src="wenhao.png" />');
+      }
+      else {
+        div.append('<div class="' + arrow + '-group-div">' + group + '</div>');
+        div.append('<img class="img" src="' + src + '" />');
+      }
+
+      return div;
+    }
+    function getTop (i, type) {
+      var top = 0;
+      if (i == 0) {
+        top = height + paddingBottom;
+      }
+      else if (i == 1) {
+        top = (i + 1) * height + paddingBottom;
+      }
+      else if (i == 2) {
+        top = (i + 3) * height + (i + 3) * paddingBottom;
+      }
+      else if (i == 3) {
+        top = (i + 3) * height + (i + 2) * paddingBottom;
+      }
+      else if (i == 4) {
+        top = (i + 5) * height + (i + 5) * paddingBottom;
+      }
+      else if (i == 5) {
+        top = (i + 5) * height + (i + 4) * paddingBottom;
+      }
+      else if (i == 6) {
+        top = (i + 7) * height + (i + 7) * paddingBottom;
+      }
+      else if (i == 7) {
+        top = (i + 7) * height + (i + 6) * paddingBottom;
+      }
+
+      if (type == 4) {
+        if (i == 0) {
+          top = height + (height + paddingBottom) / 2 + 10;
+        }
+        else if (i == 1) {
+          top = (i + 4) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+        }
+        else if (i == 2) {
+          top = (i + 7) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+        }
+        else if (i == 3) {
+          top = (i + 10) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+        }
+      }
+
+      return top;
+    }
+
+    // ===A~D组===
+    var flagArrLeft = ['塞内加尔', '荷兰', '厄瓜多尔', '卡塔尔', '威尔士', '英格兰', '伊朗', '美国', '波兰', '阿根廷', '墨西哥', '沙特', '突尼斯', '法国', '澳大利亚', '丹麦'];
+    for (var i = 0, j = 0; i < 16; i++) {
+      var div = createDiv(flagArrLeft[i], "left");
+      if (i % 4 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:10px;left:108px;width:10px;height:118px;" />');
+        if (i > 0) {
+          j++;
+        }
+      }
+      var top = j * 20;
+      div.css({ "top": (i * height + paddingBottom + top) + "px", "left": "0px" });
+      $('#div').append(div);
+    }
+
+    var leftTwoArr = ['荷兰', '塞内加尔', '英格兰', '美国', '阿根廷', '波兰', '法国', '澳大利亚'];
+    for (var i = 0, j = 0; i < 8; i++) {
+      var div = createDiv(leftTwoArr[i], "left");
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;left:108px;width:5px;height:59px;" />');
+        j++;
+      }
+
+      var top = getTop(i);
+
+      div.css({ "top": top + 3 + "px", "left": "150px" });
+      $('#div').append(div);
+    }
+
+    var leftThreeArr = ['荷兰', '美国', '阿根廷', '澳大利亚', '日本', '克罗地亚', '巴西', '韩国'];
+    for (var i = 0, j = 0; i < 8; i++) {
+      var div = createDiv(leftThreeArr[i], "left", 'time');
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;left:108px;width:5px;height:59px;" />');
+        j++;
+      }
+
+      var top = getTop(i);
+
+      div.css({ "top": top + 3 + "px", "left": "300px" });
+      $('#div').append(div);
+    }
+
+    var leftFourArr = ['荷兰', '阿根廷', '待定', '待定'];
+    //leftFourArr = ['荷兰', '阿根廷', '克罗地亚', '巴西'];
+    for (var i = 0, j = 0; i < 4; i++) {
+      var div = createDiv(leftFourArr[i], "left");
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;left:108px;width:10px;height:180px;" />');
+        j++;
+      }
+
+      var top = getTop(i, 4);
+
+      div.css({ "top": top + "px", "left": "450px" });
+      $('#div').append(div);
+    }
+
+    var leftFiveArr = ['待定', '待定']
+    //leftFiveArr = ['阿根廷', '巴西']
+    for (var i = 0; i < 2; i++) {
+      var div = createDiv(leftFiveArr[i], "left");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 3) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+      }
+      else if (i == 1) {
+        top = (i + 10) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+      }
+
+      div.css({ "top": top + "px", "left": "600px" });
+      $('#div').append(div);
+    }
+
+    var leftSixArr = ['待定'];
+    //leftSevenArr = ['阿根廷'];
+    for (var i = 0; i < 1; i++) {
+      var div = createDiv(leftSixArr[i], "left");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 6) * (height + paddingBottom) + (height + paddingBottom) / 2;
+      }
+
+      div.css({ "top": top + "px", "left": "700px" });
+      $('#div').append(div);
+    }
+
+    var leftSevenArr = ['待定'];
+    //leftSevenArr = ['巴西'];
+    for (var i = 0; i < 1; i++) {
+      var div = createDiv(leftSevenArr[i], "left");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 9) * (height + paddingBottom) + (height + paddingBottom) / 2;
+      }
+
+      div.css({ "top": top + "px", "left": "700px" });
+      $('#div').append(div);
+    }
+    // ===/A~D组===
+
+    // ===E~H组===
+    var flagArrRight = ['日本', '西班牙', '哥斯达黎加', '德国', '克罗地亚', '加拿大', '比利时', '摩洛哥', '巴西', '喀麦隆', '瑞士', '塞尔维亚', '韩国', '葡萄牙', '加纳', '乌拉圭'];
+    for (var i = 0, j = 0; i < 16; i++) {
+      var div = createDiv(flagArrRight[i], "right");
+
+      if (i % 4 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:10px;right:108px;width:10px;height:118px;transform: rotateZ(180deg);" />');
+      }
+      if (i > 0 && i % 4 == 0) {
+        j++;
+      }
+      var top = j * 20;
+      div.css({ "top": (i * height + paddingBottom + top) + "px", "right": "0px" });
+      $('#div').append(div);
+    }
+
+    var rightTwoArr = ['日本', '西班牙', '摩洛哥', '克罗地亚', '巴西', '瑞士', '葡萄牙', '韩国'];
+    for (var i = 0, j = 0; i < 8; i++) {
+      var div = createDiv(rightTwoArr[i], "right");
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;right:108px;width:5px;height:59px;transform: rotateZ(180deg);" />');
+        j++;
+      }
+
+      var top = getTop(i);
+
+      div.css({ "top": top + "px", "right": "150px" });
+      $('#div').append(div);
+    }
+
+    var rightThreeArr = ['英格兰', '塞内加尔', '法国', '波兰', '摩洛哥', '西班牙', '葡萄牙', '瑞士'];
+    for (var i = 0; i < 8; i++) {
+      var div = createDiv(rightThreeArr[i], "right");
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;right:108px;width:5px;height:59px;transform: rotateZ(180deg);" />');
+        j++;
+      }
+
+      var top = getTop(i);
+
+      div.css({ "top": top + "px", "right": "300px" });
+      $('#div').append(div);
+    }
+
+    var rightFourArr = ['待定', '待定', '待定', '待定'];
+    //rightFourArr = ['英格兰', '法国', '西班牙', '葡萄牙'];
+    for (var i = 0; i < 4; i++) {
+      var div = createDiv(rightFourArr[i], "right");
+
+      if (i % 2 == 0) {
+        div.append('<img class="kuohao" src="kuohao.png" style="position:absolute;top:5px;right:108px;width:10px;height:180px;transform: rotateZ(180deg);" />');
+        j++;
+      }
+
+      var top = getTop(i, 4);
+
+      div.css({ "top": top + "px", "right": "450px" });
+      $('#div').append(div);
+    }
+
+    var rightFiveArr = ['待定', '待定'];
+    //rightFiveArr = ['法国', '葡萄牙'];
+    for (var i = 0; i < 2; i++) {
+      var div = createDiv(rightFiveArr[i], "right");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 3) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+      }
+      else if (i == 1) {
+        top = (i + 10) * (height + paddingBottom) + (height + paddingBottom) / 2 + 5;
+      }
+
+      div.css({ "top": top + "px", "right": "600px" });
+      $('#div').append(div);
+    }
+
+    var rightSixArr = ['待定'];
+    //rightSixArr = ['葡萄牙'];
+    for (var i = 0; i < 1; i++) {
+      var div = createDiv(rightSixArr[i], "right");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 6) * (height + paddingBottom) + (height + paddingBottom) / 2;
+      }
+
+      div.css({ "top": top + "px", "right": "700px" });
+      $('#div').append(div);
+    }
+
+    var rightSevenArr = ['待定'];
+    //rightSevenArr = ['法国'];
+    for (var i = 0; i < 1; i++) {
+      var div = createDiv(rightSevenArr[i], "right");
+
+      var top = 0;
+      if (i == 0) {
+        top = (i + 9) * (height + paddingBottom) + (height + paddingBottom) / 2;
+      }
+
+      div.css({ "top": top + "px", "right": "700px" });
+      $('#div').append(div);
+    }
+    // ===/E~H组===
+
+    //$('.img').remove();
+    //$('.left-div').html('');
+
+    $('#div').append('<img src="first.png" style="position:absolute;top:200px;left:775px;width:50px;height:50px;" />');
+
+    // 32强球队
+    $('#div').append('<div style="position:absolute;top:-30px;left:0px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">32强球队</div>');
+    $('#div').append('<div style="position:absolute;top:-30px;right:0px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">32强球队</div>');
+    // 16强小组排名
+    $('#div').append('<div style="position:absolute;top:10px;left:150px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">16强小组排名</div>');
+    $('#div').append('<div style="position:absolute;top:10px;right:150px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">16强小组排名</div>');
+    // 16强对阵球队
+    $('#div').append('<div style="position:absolute;top:10px;left:300px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">16强对阵球队</div>');
+    $('#div').append('<div style="position:absolute;top:10px;right:300px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">16强对阵球队</div>');
+    $('#div').append('<div style="position:absolute;top:100px;left:300px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-03 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:265px;left:300px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-04 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:430px;left:300px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-05 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:595px;left:300px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-06 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:100px;right:300px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-05 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:265px;right:300px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-04 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:430px;right:300px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-06 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:595px;right:300px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-07 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:145px;left:450px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-10 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:470px;left:450px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-09 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:145px;right:450px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-11 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:470px;right:450px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-10 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:325px;left:600px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-14 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:325px;right:600px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">12-15 03:00</div>');
+    $('#div').append('<div style="position:absolute;top:290px;left:760px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-18 23:00</div>');
+    $('#div').append('<div style="position:absolute;top:350px;left:760px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">12-17 23:00</div>');
+    // 8强对阵球队
+    $('#div').append('<div style="position:absolute;top:33px;left:450px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">8强对阵球队</div>');
+    $('#div').append('<div style="position:absolute;top:33px;right:450px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">8强对阵球队</div>');
+    // 半决赛对阵
+    $('#div').append('<div style="position:absolute;top:118px;left:600px;width:100px;height:30px;line-height:40px;text-align:left;font-size:12px;font-weight:bold;">半决赛对阵</div>');
+    $('#div').append('<div style="position:absolute;top:118px;right:600px;width:100px;height:30px;line-height:40px;text-align:right;font-size:12px;font-weight:bold;">半决赛对阵</div>');
+    // 决赛
+
+
+    if (false) {
+      // 冠军
+      if (true) {
+        var div = createDiv("阿根廷", "right");
+        div.css({ "top": "170px", "left": "783px" });
+        $('#div').append(div);
+        $('#div').append('<div style="position:absolute;top: 109px;left: 714px;width:100px;height:30px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;">冠军</div>');
+        $('#div').append('<img style="position:absolute;top: 130px;left: 774px;width:50px;height:50px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;transform: rotateZ(30deg);" src="冠军.png" />');
+      }
+      // 亚军
+      $('#div').append('<div style="position:absolute;top: 209px;left: 795px;width:100px;height:30px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;">亚军</div>');
+      $('#div').append('<img style="position:absolute;top: 230px;left: 853px;width:50px;height:50px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;transform: rotateZ(30deg);" src="亚军.png" />');
+      // 季军
+      $('#div').append('<div style="position:absolute;top: 331px;left: 633px;width:100px;height:30px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;">季军</div>');
+      $('#div').append('<img style="position:absolute;top: 352px;left: 692px;width:50px;height:50px;line-height:40px;text-align:right;font-size:15px;font-weight:bold;transform: rotateZ(30deg);" src="季军.png" />');
+    }
+  });
+
+</script>
+
+</html>

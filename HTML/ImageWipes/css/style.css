@@ -1,0 +1,15 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+html { background: #D9D3CF; }
+body { color: #fd4903 }
+
+#page-wrap { width: 800px; margin: 60px auto; position: relative; }
+
+h1, h2 { font: bold 56px Helvetica, Arial, Sans-Serif; letter-spacing: -2px; }
+h1 { margin: 0 0 20px 0; }
+h2 { margin: 50px 0 20px 0; font-size: 24px; letter-spacing: -1px; color: #2c2424; }

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="assets/img/favicon.ico"/>
+	<title>Kailo - Bootstrap E-Commerce Template</title>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='edd_templates/edd.css' type='text/css' media='all'/>
+	<link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all'/>
+	<link rel='stylesheet' href='style.css' type='text/css' media='all'/>
+	<link rel='stylesheet' href='assets/css/font-awesome.css' type='text/css' media='all'/>
+	
+	<!-- UNCOMMENT THE FOLLOWING LINE TO ACTIVATE THE BOXED LAYOUT (see the documentation for more)-->
+	
+	<!--
+	<link href="assets/css/boxed.css" rel="stylesheet">
+	-->	
+	
+	<!-- CHANGE THEME SKIN COLOR HERE (replace blue with any other color from assets/css/skins/ folder) -->
+	<link href="assets/css/skins/blue.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="boxedlayout">
+
+		<!-- HEADER
+		================================================== -->
+		<nav id="wow-menu" class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href='index.html'>
+					<img alt="Kailo" src="assets/img/logo.png"/>
+					</a>
+				</div>
+				<!-- Menu -->
+				<div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+					<ul id="menu-top" class="nav navbar-nav navbar-right">
+						<li class="active"><a href="index.html">Home</a></li>
+						<li><a href="shop.html">Shop</a></li>
+						<li><a href="myaccount.html">My Account</a></li>
+						<li><a href="checkout.html">Checkout</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li class="dropdown"><a href="#">Pages</a>
+							<ul class="dropdown-menu">
+								<li><a href="productsingle.html">Product Single</a></li>
+								<li><a href="productsingle-nosidebar.html">Product Single No Sidebar</a></li>								
+								<li><a href="shop-nosidebar.html">Shop No Sidebar</a></li>
+								<li><a href="blogsingle.html">Blog Single</a></li>								
+								<li><a href="useraccount.html">User Account</a></li>
+								<li><a href="purchaseconfirmation.html">Purchase Confirmation</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="columns.html">Columns</a></li>
+								<li><a href="elements.html">Elements</a></li>
+								<li><a href="icons.html">Icons</a></li>
+								<li><a href="starter.html">Starter</a></li>
+							</ul>
+						</li>
+						<li><a href="checkout.html"><i class="fa fa-shopping-cart"></i> Cart (3)</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- PAGE CONTENT
+		================================================== -->
+		<div class="templatemyaccount">
+		
+			<!-- TITLE BEGINS -->
+			<div class="headerimage" style="background-image: url(http://www.themepush.com/demo-kailo/wp-content/uploads/sites/6/2015/03/header.jpg);">
+				<div class="headercontent">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="fleft">
+									<h1>My Account</h1>
+								</div>
+								<div class="fright breadc">
+									<a href="index.html">Home</a> / My Account
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- TITLE ENDS -->
+			
+			<div class="container padtop40 padbot50">
+				<div class="row">
+				<!-- MAIN CONTENT BEGINS -->
+				<div class="col-md-12">
+					<div class="wraplogin">
+						<form id="edd_login_form" class="edd_form" action="#" method="post">
+							<fieldset>
+								<legend>Log into Your Account</legend>
+								<p>
+									<label>Username</label>
+									<input name="edd_user_login" id="edd_user_login" class="required edd-input" type="text" title="Username"/>
+								</p>
+								<p>
+									<label>Password</label>
+									<input name="edd_user_pass" id="edd_user_pass" class="password required edd-input" type="password"/>
+								</p>
+								<p>
+									<input id="edd_login_submit" type="submit" class="edd_submit" value="Log In"/>
+								</p>
+								<p class="edd-lost-password">
+									<a href="#" title="Lost Password">
+									Lost Password? </a>
+								</p>
+							</fieldset>
+						</form>
+					</div>
+					<span class="or">or</span>
+					<div class="wrapregister">
+						<form id="edd_register_form" class="edd_form" action="#" method="post">
+							<fieldset>
+								<legend>Register New Account</legend>
+								<p>
+									<label>Username</label>
+									<input id="edd-user-login" class="required edd-input" type="text" name="edd_user_login" title="Username"/>
+								</p>
+								<p>
+									<label>Email</label>
+									<input id="edd-user-email" class="required edd-input" type="email" name="edd_user_email" title="Email Address"/>
+								</p>
+								<p>
+									<label>Password</label>
+									<input id="edd-user-pass" class="password required edd-input" type="password" name="edd_user_pass"/>
+								</p>
+								<p>
+									<label>Confirm Password</label>
+									<input id="edd-user-pass2" class="password required edd-input" type="password" name="edd_user_pass2"/>
+								</p>
+								<p>
+									<input class="button" name="edd_register_submit" type="submit" value="Register"/>
+								</p>
+							</fieldset>
+						</form>
+					</div>
+				</div>				
+				<!-- MAIN CONTENT ENDS -->
+					
+				</div>				
+			</div>
+		</div>		
+		
+		<!-- CALL TO ACTION
+		================================================== -->
+		<div class="actionbeforefooter text-center">
+			<div class="container">
+				<span><i class="fa fa-star fa-spin"></i> Psst! Like what you see? Enter code <b>WOWKAILO10</b> and get 10% discount for Kailo template. This week only! </span>
+				<a target="_blank" class="actionbutton" href="#">Buy Now </a>
+			</div>
+		</div>
+		
+		<!-- FOOTER
+		================================================== -->		
+		<footer class="themefooter section">
+		<div class="container">
+			<div class="section-inner row">
+				<!-- /footer-a -->
+				<div class="column column-1 col-md-4 rightbd">
+					<div class="widgets">
+						<div class="widget widget_text">
+							<div class="widget-content">
+								<h3 class="widget-title">About  "Kailo""</h3>
+								<div class="textwidget">
+									You are previewing "Kailo", a premium HTML bootstrap template that will help you design your website for selling videos, ebooks, photos, audio, software, podcasts or any other type of file. The Wordpress version provides a fully functional shop ready.
+								</div>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /footer-b -->
+				<div class="column column-1 col-md-4 rightbd">
+					<div class="widgets">
+						<div class="widget widget_wysija">
+							<div class="widget-content">
+								<h3 class="widget-title">Subscribe to our Newsletter</h3>
+								<div class="widget_wysija_cont">
+									<form class="widget_wysija">
+										 Subscribe to our newsletter and join our 1374 subscribers.
+										<p class="wysija-paragraph">
+											<label>Email <span class="wysija-required">*</span></label>
+											<input type="text" name="" class="wysija-input validate[required,custom[email]]" title="Email" value=""/>
+										</p>
+										<input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!"/>
+									</form>
+								</div>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /footer-c -->				
+				<div class="column column-1 col-md-4">
+					<div class="widgets">
+						<div class="widget widget_edd_categories_tags_widget">
+							<div class="widget-content">
+								<h3 class="widget-title">Shop Categories</h3>
+								<ul class="edd-taxonomy-widget">
+									<li><a href="#">Banners</a></li>
+									<li><a href="#">Graphics</a></li>
+									<li><a href="#">Logos</a></li>
+									<li><a href="#">Photoes</a></li>
+									<li><a href="#">Vintage</a></li>
+								</ul>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+		<!-- /copyright -->
+		<div class="sectioncredits">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<span class="credits-left fleft">
+						<a target="_blank" href="http://www.mobanwang.com" title="网页模板">网页模板</a> </span>
+						<ul class="footermenu fright">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="shop.html">Shop</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="myaccount.html">My Account</a></li>
+						</ul>
+					</div>
+					<div class="clear">
+					</div>
+				</div>
+			</div>
+		</div>
+		</footer>
+		
+		<!-- SCRIPTS
+		================================================== -->			
+		<script type='text/javascript' src='assets/js/jquery.js'></script>
+		<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
+		<script type='text/javascript' src='assets/js/masonry.js'></script>
+		<script type='text/javascript' src='assets/js/imagesloaded.js'></script>
+		<script type='text/javascript' src='assets/js/SmoothScroll.js'></script>
+		<script type='text/javascript' src='assets/js/init.js'></script>
+		<script type='text/javascript' src='assets/js/anim.js'></script>
+	</div>
+</body>
+</html>
